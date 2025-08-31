@@ -45,8 +45,8 @@
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
-cd dashmapp
+git clone https://github.com/0wardriver0/DashMapp.git
+cd DashMapp
 
 # Start the application
 docker-compose up -d
@@ -83,7 +83,7 @@ npm run dev
 
 ```yaml
 # docker-compose.yml
-version: '3.8'
+
 services:
   dashmapp:
     image: dashmapp:latest
