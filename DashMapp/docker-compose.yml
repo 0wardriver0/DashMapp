@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  dashmapp:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mount data directory to persist SQLite database
+      - ./data:/app/data
+    environment:
+      - NODE_ENV=production
+      - DATABASE_PATH=/app/data/dashboard.db
+    restart: unless-stopped
+    container_name: dashmapp
