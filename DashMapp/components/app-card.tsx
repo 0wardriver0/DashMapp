@@ -33,6 +33,11 @@ export function AppCard({ app, onUpdate, showDescription = true, compact = false
     window.open(app.url, "_blank", "noopener,noreferrer")
   }
 
+  const handleEditClick = () => {
+    console.log("[v0] Edit button clicked for app:", app.name)
+    setShowEditDialog(true)
+  }
+
   return (
     <>
       <Card className="group hover:shadow-md transition-all duration-200 cursor-pointer border-border bg-card">
@@ -72,13 +77,13 @@ export function AppCard({ app, onUpdate, showDescription = true, compact = false
                 <Button
                   variant="ghost"
                   size="sm"
-                  className={`opacity-0 group-hover:opacity-100 transition-opacity ${compact ? "h-6 w-6 p-0" : "h-8 w-8 p-0"}`}
+                  className={`transition-opacity ${compact ? "h-8 w-8 p-0" : "h-8 w-8 p-0"} opacity-60 hover:opacity-100`}
                 >
-                  <Edit className={`${compact ? "h-2.5 w-2.5" : "h-3 w-3"}`} />
+                  <Edit className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setShowEditDialog(true)}>
+                <DropdownMenuItem onClick={handleEditClick}>
                   <Edit className="h-4 w-4 mr-2" />
                   Edit
                 </DropdownMenuItem>
@@ -96,7 +101,15 @@ export function AppCard({ app, onUpdate, showDescription = true, compact = false
         </CardContent>
       </Card>
 
-      <EditAppDialog app={app} open={showEditDialog} onOpenChange={setShowEditDialog} onUpdate={onUpdate} />
+      <EditAppDialog
+        app={app}
+        open={showEditDialog}
+        onOpenChange={(open) => {
+          console.log("[v0] Edit dialog state changed:", open)
+          setShowEditDialog(open)
+        }}
+        onUpdate={onUpdate}
+      />
     </>
   )
 }
