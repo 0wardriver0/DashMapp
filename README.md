@@ -165,7 +165,7 @@ Organize your apps with custom categories:
 
 ### Project Structure
 
-\`\`\`
+```bash
 dashmapp/
 ├── app/                 # Next.js app directory
 ├── components/          # React components
@@ -173,7 +173,7 @@ dashmapp/
 ├── scripts/            # Database initialization
 ├── public/             # Static assets
 └── docker-compose.yml  # Docker configuration
-\`\`\`
+```
 
 ### Tech Stack
 
