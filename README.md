@@ -45,7 +45,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/0wardriver0/DashMapp.git
+git clone https://github.com/loopbacklycan/DashMapp.git
 cd DashMapp
 
 # Start the application
